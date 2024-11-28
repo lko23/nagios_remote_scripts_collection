@@ -16,19 +16,14 @@ IF NOT %ERRORLEVEL% == 0 (
 )
 
 FOR /F "tokens=* USEBACKQ" %%F IN (`findstr /S /M /C:"ACTIVE 1" C:\Path\to\nbu\db\class\ info`) DO (
-  IF NOT "%%F" == "%basedir%\ora-ksl-db-backup-w2k\info" (
-  IF NOT "%%F" == "%basedir%\sql-ksl-logs-backup\info" ( 
-  IF NOT "%%F" == "%basedir%\user-archive\info" ( 
-  IF NOT "%%F" == "%basedir%\user-backup\info" ( 
-  IF NOT "%%F" == "%basedir%\vmw-DC2-NoQuery\info" ( 
-  IF NOT "%%F" == "%basedir%\vmw-DCX\info" ( 
-  IF NOT "%%F" == "%basedir%\vmw-DCX-NoQuiesce\info" ( 
-  IF NOT "%%F" == "%basedir%\_All_Clients\info" ( 
+  IF NOT "%%F" == "%basedir%\exclude-policy1\info" (
+  IF NOT "%%F" == "%basedir%\exclude-policy2\info" ( 
+  IF NOT "%%F" == "%basedir%\exclude-policyn\info" ( 
 
   SET var!count!=%%F
   SET /a count=!count!+1
 
-  ) ) ) ) ) ) ) )
+  ) ) )
 )
 
 IF NOT %ERRORLEVEL% == 0 (
