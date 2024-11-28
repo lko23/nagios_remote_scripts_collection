@@ -43,7 +43,7 @@ foreach  ($Scope in $Scopes) {
     $Status = 1
     $ScopeStatus = 1
     $OutputScopeStatus = "Scope-Status=$($scope.state)"
-    if ($gb_ShowDetails) {Write-Host " Fehler Scope-Status $($scope.state)`t" -NoNewline -ForegroundColor Red}
+    if ($gb_ShowDetails) {Write-Host " Error Scope-Status $($scope.state)`t" -NoNewline -ForegroundColor Red}
   }
 
   $error.clear()
@@ -59,7 +59,7 @@ foreach  ($Scope in $Scopes) {
     If ($gb_ShowDetails) {Write-Host "OK Failover $($FailoverInfos.ServerRole)" -ForegroundColor Green}
   }
   if ($ScopeStatus) {
-    $OutputScope = $OutputScope + "Fehler bei Scope $($scope.ScopeId): $($OutputScopeStatus), $($OutputScopeFailover)`n"
+    $OutputScope = $OutputScope + "Error bei Scope $($scope.ScopeId): $($OutputScopeStatus), $($OutputScopeFailover)`n"
   }
 }
 
