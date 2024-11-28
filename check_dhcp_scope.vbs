@@ -1,4 +1,28 @@
- 
+' needs:
+' C:\Program Files\NSClient++\nsclient.ini: check_dhcp_scope=check_dhcp\check_dhcp_scope.vbs $ARG1$ $ARG2$
+'  Script:	check_dhcp_scope.vbs
+'  Description:	Check the health status of scopes on the local DHCP server
+'  History:     v1.0 : first version
+
+Set objFSO = CreateObject("Scripting.FileSystemObject")
+Set tfolder = objfso.GetSpecialFolder(2)
+
+filetoparse= tfolder&"\EXPORT_DHCP_SCOPE.TXT"
+
+bdebug=FALSE
+
+stroutCritical=""
+stroutWarning=""
+strout=""
+
+Critical_Limit=Int(WScript.Arguments(2))
+Warning_Limit=Int(WScript.Arguments(1))
+
+function parse(strtoparse)
+	parse=mid(strtoparse,instr(strtoparse,"=")+2,len(strtoparse)-instr(strtoparse,"=")-2)
+end function
+
+
 
 	ScopeCount=0
 	ScopeOk=0
