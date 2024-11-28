@@ -42,4 +42,3 @@ end if
 
 Wscript.Echo "OK"
 wscript.quit(intOK)
-
