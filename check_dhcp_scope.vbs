@@ -1,3 +1,31 @@
+ 
+
+	ScopeCount=0
+	ScopeOk=0
+	ScopeDisabled=0
+	ScopeWarning=0
+	ScopeCritical=0
+
+	Const ForReading = 1
+	Const ForWriting = 2
+	Const ForAppending = 8
+
+	Set objFileSorg = objFSO.OpenTextFile(filetoparse, ForReading)
+
+	oldstr2=""
+	oldstr3=""	
+	oldstr=""	
+
+	Do While objFileSorg.AtEndOfStream <> True  
+		strSorg = objFileSorg.ReadLine
+		if instr(oldstr2,"Subnet") then
+			scopecount=scopecount+1
+
+			SubnetIP=parse(oldstr2)
+			FreeIP=parse(strsorg)
+			UsedIP=parse(oldstr)
+			'Calc relUsed
+			relUsed=round((int(UsedIP)/(int(FreeIP)+int(UsedIP)+1))*100)
 
 			if bdebug then wscript.echo SubnetIP&" "&UsedIP&" "&FreeIP
 
