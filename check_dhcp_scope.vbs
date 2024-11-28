@@ -22,8 +22,8 @@ function parse(strtoparse)
 	parse=mid(strtoparse,instr(strtoparse,"=")+2,len(strtoparse)-instr(strtoparse,"=")-2)
 end function
 
-strthecommand="cmd.exe /c netsh dhcp server show all > "&filetoparse&" 2>&1"
-
+command="cmd.exe /c netsh dhcp server show all > "&filetoparse&" 2>&1"
+CreateObject().Run (command) ,0,true
 WScript.Sleep(5000)  
 
 	ScopeCount=0
