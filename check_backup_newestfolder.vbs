@@ -22,7 +22,6 @@ folder_path = WScript.Arguments(1)
 age_threshold_crit = CInt(WScript.Arguments(2))
 age_threshold_warn = CInt(WScript.Arguments(3))
 
-
 Dim fso, f
 Set fso = CreateObject("Scripting.FileSystemObject")
 Set f = fso.getFolder(folder_path)
